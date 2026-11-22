@@ -170,7 +170,7 @@ class ReAnimeProvider : MainAPI() {
         document.select("[data-src], [data-url], [data-embed], [onclick]").forEach { element ->
             val raw = listOf("data-src", "data-url", "data-embed", "onclick")
                 .map { element.attr(it) }.firstOrNull { it.contains("http") }.orEmpty()
-            Regex("""https?\\://[^"'\\s<>]+""").find(raw)?.value?.let {
+            Regex("""https?://[^"\'\s<>]+""").find(raw)?.value?.let {
                 embedUrls.add(it.replace("&amp;", "&"))
             }
         }
