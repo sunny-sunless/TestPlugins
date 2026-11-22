@@ -194,8 +194,7 @@ class ReAnimeProvider : MainAPI() {
                 found = true
             } else {
                 runCatching {
-                    loadExtractor(embed, watchUrl, subtitleCallback, callback)
-                    found = true
+                    found = loadExtractor(embed, watchUrl, subtitleCallback, callback) || found
                 }
             }
         }
